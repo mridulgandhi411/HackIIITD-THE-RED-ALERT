@@ -1,0 +1,15 @@
+<%- include("partials/header") -%>
+
+
+  <form class="form-signin" action="/numbers" method="post">
+  <img class="mb-4 logo" src="images/" alt="" width="72" height="72">
+  <h1 class="h3 mb-3 font-weight-normal alert "> Which 5 people can help you in an emergency? </h1>
+  <input type="number"  name="phone1" class="form-control top" placeholder="Phone Number 1" autofocus required>
+  <input type="number"  name="phone2" class="form-control middle" placeholder="Phone Number 2" required>
+  <input type="number"  name="phone3" class="form-control middle" placeholder="Phone Number 3" required>
+  <input type="number"  name="phone4" class="form-control middle" placeholder="Phone Number 4" required>
+  <input type="number"  name="phone5" class="form-control middle" placeholder="Phone Number 5" required>
+  <input type="text" name="" class="form-control bottom" placeholder="Type your Emergency Message">
+  <button class="btn btn-lg btn-danger btn-block signUp" type="submit">Submit</button>
+
+<%- include("partials/footer") -%>

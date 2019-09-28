@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <span id='message'></span>
+    <br><br>
+
+     <h1>Speak Now..</h1>
+
+    <form action="/command" method="post" id="commandForm">
+      <input type="hidden" onchange="myfunction()" name="myCommand" id="myCommand">
+
+    </form>
+
+
+
+
+    <script>
+        command="nothing";
+        var message = document.querySelector('#message');
+        var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+        var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+        var grammar = '#JSGF V1.0;';
+        var recognition = new SpeechRecognition();
+        recognition.start();
+        var speechRecognitionList = new SpeechGrammarList();
+        speechRecognitionList.addFromString(grammar, 1);
+        recognition.grammars = speechRecognitionList;
+        recognition.lang = 'en-US';
+        recognition.interimResults = false;
+        recognition.onresult = function(event) {
+            var last = event.results.length - 1;
+            var command = event.results[last][0].transcript;
+            document.getElementById("myCommand").value=command;
+            if(command==="emergency") {
+              console.log("triggered");
+              document.getElementById("commandForm").submit();
+            }
+            message.textContent = 'Voice Input: ' + command + '.';
+
+        };
+        recognition.onspeechend = function() {
+
+            recognition.stop();
+        };
+        recognition.onerror = function(event) {
+            message.textContent = 'Error occurred in recognition: ' + event.error;
+        };
+
+        // function myfunction() {
+        //     console.log("triggered");
+        //     document.getElementById("commandForm").submit();
+        //
+        // }
+
+    </script>
+
+</body>
+</html>

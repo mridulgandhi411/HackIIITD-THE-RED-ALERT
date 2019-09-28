@@ -1,0 +1,13 @@
+
+<%- include("partials/header") -%>
+
+  <form class="form-signin" action="/login" method="post">
+  <img class="mb-4 logo" src="images/" alt="" width="72" height="72">
+  <h1 class="h3 mb-3 font-weight-normal alert ">RED ALERT!</h1>
+  <input type="text"  name="fullName" class="form-control top" placeholder="Full Name" required autofocus>
+  <input type="text" name="phone" class="form-control middle" placeholder="Phone Number" required>
+  <input type="email"  name="email" class="form-control bottom" placeholder="Email" required>
+  <button class="btn btn-lg btn-danger btn-block signUp" type="submit">Register</button>
+  <button class="btn btn-lg btn-danger btn-block signUp2" type="submit">Login</button>
+
+<%- include("partials/footer") -%>
