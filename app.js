@@ -5,8 +5,7 @@ const bodyParser=require("body-parser");
 const ejs=require("ejs");
 const mongoose= require("mongoose");
 
-const accountSid = 'ACe3f773f1ac6cba64b48762182d1318a7';
-const authToken = 'a75c24eb485d8ba1f05e039d58d8b9cc';
+
 var client=require("twilio")(accountSid,authToken);
 mongoose.set('useFindAndModify', false);
 
